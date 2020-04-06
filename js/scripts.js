@@ -4,6 +4,13 @@ function PlacesIveBeen() {
   this.currentId = 0
 }
 
+PlacesIveBeen.prototype.addCities = function(city) {
+  this.currentId ++
+  this.cities.id = this.currentId
+  this.cities.push(city);
+}
+
+
 function Cities(name, country, date, visits) {
   this.name = name;
   this.country = country;
