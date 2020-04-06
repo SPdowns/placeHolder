@@ -1,16 +1,17 @@
 // Back End
+//declaring a constructor with 2 keyvalue pair
 function PlacesIveBeen() {
-  this.cities = [];
+  this.places = [];
   this.currentId = 0
 }
-
-PlacesIveBeen.prototype.addCities = function(city) {
-  this.currentId ++
-  this.cities.id = this.currentId
-  this.cities.push(city);
+//addplaces is a protoype of the constructor PlacesIveBeen, and its a 
+//method of the object created with PlacesIveBeen
+PlacesIveBeen.prototype.addplaces = function(city) {
+  this.places.id = this.addID();
+  this.places.push(city);
 }
-
-
+pla
+//declaring a constructor with 4 keypair values
 function City(name, country, date, visits) {
   this.name = name;
   this.country = country;
@@ -18,26 +19,37 @@ function City(name, country, date, visits) {
   this.visits = visits;
 }
 // var arr = [$('input1').val(), $('input2').val(), $('input3').val(),]
-// let place = new Cities('bahamas', 'Bahamas' , '04-3-2020', arr)
+// let place = new places('bahamas', 'Bahamas' , '04-3-2020', arr)
 
 // Front End
 
-
+//declares jQuerey(UI Logic)
 $(document).ready(function(){
-  var randomArray = [{name: 'eric', age:24}, {name:'sean', age: 102}]
-  randomArray.forEach(person=>{
-    console.log(person.name)
-  })
+  //creating an object using our constructor PLacesIveBeen
   var whateverFloats = new PlacesIveBeen();
+//uses jQuerey to collect the inputs on our HTML #form
   $('#form-group').submit(function(event){
     event.preventDefault();
     var cityName = $('#cityName').val();
     var countryName = $('#countryName').val();
     var date = $('#date').val();
-    var placesVisited = $('placesVisited').val();
-
+    var placesVisited = $('#placesVisited').val();
+    
+//creating an object using our constructor City
     var wholePlace = new City(cityName, countryName, date, placesVisited)
-      whateverFloats.addCities(wholePlace)
+//taking our object whateverFloats and using the method addplaces to add wholePlace 
+//into the places array on line 4
+    whateverFloats.addplaces(wholePlace)
+//creates the array placesArr that has the object whateverFloats with the data inside
+    var placesArr = whateverFloats.places;
+//before running the next forLoop, we need to clear whats visible with the .empty functions
+//targeting the #returnValue div in the html
+    $('#returnAnswer').empty();  
+//forEach loop runs through placesArr
+    placesArr.forEach(function(city){
+     $('#returnAnswer').append(`<h2>${city.id}</h2>`);
       
+    })
+    
   });
 });
