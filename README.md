@@ -17,8 +17,6 @@ A website that catalogs places one has visited, what country its in, what date t
 5. Step five: Drag the html file into your broswer. 
 6. Step six: Add places to the page Today!
 
-or check it out at [GH-pages](https://neversettels.github.io/beep-boop/)
-
 
 ## **Specs**
 
